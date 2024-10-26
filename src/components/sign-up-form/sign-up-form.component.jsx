@@ -98,9 +98,6 @@ const SignUpForm = () => {
         <Button buttonOptions={{ type: "submit" }}>
           Sign Up
         </Button>
-        <Button buttonType="google" buttonOptions={{ type: "submit" }}>
-          Google
-        </Button>
       </form>
     </div>
   );
