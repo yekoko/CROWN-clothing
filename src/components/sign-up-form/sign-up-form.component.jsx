@@ -95,9 +95,7 @@ const SignUpForm = () => {
             required: true,
           }}
         />
-        <Button buttonOptions={{ type: "submit" }}>
-          Sign Up
-        </Button>
+        <Button buttonOptions={{ type: "submit" }}>Sign Up</Button>
       </form>
     </div>
   );
