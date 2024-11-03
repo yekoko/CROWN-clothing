@@ -1,12 +1,21 @@
 import { useParams } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
-import { CategoriesContext } from "../../contexts/categories.context";
+import { useEffect, useState } from "react";
+// import { CategoriesContext } from "../../contexts/categories.context";
 import ProductCard from "../../components/product-card/product-card.component";
-import "./category.style.scss";
+import { useSelector } from "react-redux";
+import {
+  selectCategoriesMap,
+  selectCategoriesIsLoading,
+} from "../../store/categories/category.selector";
+import Loading from "../../components/loading/loading.component";
+// import "./category.style.scss";
+import { CategoryContainer, CategoryTitle } from "./category.style";
 
 const Category = () => {
   const { category } = useParams();
-  const { categoriesMap } = useContext(CategoriesContext);
+  //const { categoriesMap } = useContext(CategoriesContext);
+  const categoriesMap = useSelector(selectCategoriesMap);
+  const isLoading = useSelector(selectCategoriesIsLoading);
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -15,13 +24,17 @@ const Category = () => {
 
   return (
     <>
-      <h2 className="category-title">{category.toUpperCase()}</h2>
-      <div className="category-container">
-        {products &&
-          products.map((product) => {
-            return <ProductCard key={product.id} product={product} />;
-          })}
-      </div>
+      <CategoryTitle>{category.toUpperCase()}</CategoryTitle>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <CategoryContainer>
+          {products &&
+            products.map((product) => {
+              return <ProductCard key={product.id} product={product} />;
+            })}
+        </CategoryContainer>
+      )}
     </>
   );
 };

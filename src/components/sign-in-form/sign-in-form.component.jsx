@@ -5,7 +5,8 @@ import {
 } from "../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/form-input.component";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
-import "./sign-in-form.style.scss";
+//import "./sign-in-form.style.scss";
+import { SignInContainer, ButtonContainer } from "./sign-in-form.style";
 
 const defaultFormFields = {
   email: "",
@@ -44,7 +45,7 @@ const SignInForm = () => {
   };
 
   return (
-    <div className="sign-in-container">
+    <SignInContainer>
       <h2>Already have an account?</h2>
       <span>Sign In with your email and password</span>
       <form onSubmit={handleSubmit}>
@@ -68,7 +69,7 @@ const SignInForm = () => {
             required: true,
           }}
         />
-        <div className="buttons-container">
+        <ButtonContainer>
           <Button buttonOptions={{ type: "submit" }}>Sign In</Button>
           <Button
             buttonType={BUTTON_TYPE_CLASSES.google}
@@ -76,9 +77,9 @@ const SignInForm = () => {
           >
             Sign In With Google
           </Button>
-        </div>
+        </ButtonContainer>
       </form>
-    </div>
+    </SignInContainer>
   );
 };
 
