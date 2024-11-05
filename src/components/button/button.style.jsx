@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { LoadingContainer } from "../loading/loading.style";
 
 export const BaseButton = styled.button`
   min-width: 165px;
@@ -17,6 +18,8 @@ export const BaseButton = styled.button`
   cursor: pointer;
   display: flex;
   justify-content: center;
+  align-items: center;
+  
   &:hover {
     background-color: white;
     color: black;
@@ -42,4 +45,9 @@ export const InvertedButton = styled(BaseButton)`
     color: white;
     border: none;
   }
+`;
+
+export const ButtonLoading = styled(LoadingContainer)`
+  width: 30px;
+  height: 30px;
 `;
