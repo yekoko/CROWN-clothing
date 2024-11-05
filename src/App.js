@@ -24,7 +24,7 @@ const App = () => {
   useEffect(() => {
     dispatch(checkUserSession());
   }, [dispatch]);
-
+  
   return (
     <Routes>
       <Route path="/" element={<NavBar />}>
